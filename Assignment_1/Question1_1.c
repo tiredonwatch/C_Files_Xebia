@@ -1,3 +1,4 @@
+//Wap to check wether a given number is Armstrong or not
 #include <stdio.h>
 #include <math.h>
 
@@ -7,7 +8,7 @@ int main(void) {
     int sum= 0;
     
 
-    printf("Enter a number: ");
+    printf("\nEnter a number: ");
     scanf("%d", &number);
 
     originalNumber = number;

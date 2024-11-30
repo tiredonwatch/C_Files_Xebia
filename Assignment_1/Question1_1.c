@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-int main() {
+int main(void) {
     int number, originalNumber, remainder;
     int counter =0;
     int sum= 0;
@@ -36,5 +36,4 @@ int main() {
         printf("%d is not an Armstrong number.\n", number);
     }
 
-    return 0;
 }

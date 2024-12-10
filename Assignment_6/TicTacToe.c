@@ -1,5 +1,6 @@
 #include <stdio.h>
-
+#include<stdio.h>
+#include<limits.h>
 
 void print_arr(char array[3][3]);
 int winner_check(char array[3][3], char player);

@@ -1,46 +1,28 @@
 #include <stdio.h>
 
-void swapMethod1(int a, int b);
-void swapMethod2(int *ptr1, int *ptr2);
-void swapMethod3(int a, int b);
-void swapMethod4(int a, int b);
-
 int main() {
-    int num1, num2;
-    printf("Enter two numbers: \n");
-    scanf("%d%d", &num1, &num2);
-    swapMethod4(num1, num2);
+    int num, count = 0;
+    printf("Enter the number of students: ");
+    scanf("%d", &num);
+
+    int marks[num];
+    for (int i = 0; i < num; i++) {
+        printf("Enter marks for student %d: ", i + 1);
+        scanf("%d", &marks[i]);
+
+        if (marks[i] < 0 || marks[i] > 100) {
+            printf("Invalid input. Marks should be between 0 and 100. Try again.\n");
+            i--;
+        }
+    }
+
+    for (int i = 0; i < num; i++) {
+        if (marks[i] == 99) {
+            printf("Student %d scored 99 marks.\n", i + 1);
+            count++;
+        }
+    }
+
+    printf("\n%d students scored 99 marks.\n", count);
     return 0;
-}
-
-void swapMethod1(int a, int b) {
-    int temp = a;
-    a = b;
-    b = temp;
-    printf("Swapped Successfully.\n");
-    printf("1st number = %d\n2nd number = %d\n", a, b);
-}
-
-void swapMethod2(int *ptr1, int *ptr2) {
-    int temp = *ptr1;
-    *ptr1 = *ptr2;
-    *ptr2 = temp;
-    printf("Swapped Successfully.\n");
-    printf("1st number = %d\n2nd number = %d\n", *ptr1, *ptr2);
-}
-
-void swapMethod3(int a, int b) {
-    a = a + b;
-    b = a - b;
-    a = a - b;
-    printf("Swapped Successfully.\n");
-    printf("1st number = %d\n2nd number = %d\n", a, b);
-}
-
-void swapMethod4(int a, int b) {
-    a = a ^ b;
-    b = a ^ b;
-    a = a ^ b;
-    printf("Swapped Successfully.\n");
-    printf("1st number = %d\n2nd number = %d\n", a, b);
 }

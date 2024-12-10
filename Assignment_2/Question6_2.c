@@ -1,30 +1,32 @@
 #include <stdio.h>
 
+void calculateAverage(int numStudents, int marks[]);
+
 int main() {
-    int x, y;
+    int numStudents;
+    printf("Enter the number of students: ");
+    scanf("%d", &numStudents);
 
-    printf("Enter the x-coordinate: ");
-    scanf("%d", &x);
-    printf("Enter the y-coordinate: ");
-    scanf("%d", &y);
-
-    if (x > 0 && y > 0) {
-        printf("The coordinate (%d, %d) lies in the First Quadrant.\n", x, y);
-    } else if (x > 0 && y < 0) {
-        printf("The coordinate (%d, %d) lies in the Fourth Quadrant.\n", x, y);
-    } else if (x < 0 && y > 0) {
-        printf("The coordinate (%d, %d) lies in the Second Quadrant.\n", x, y);
-    } else if (x < 0 && y < 0) {
-        printf("The coordinate (%d, %d) lies in the Third Quadrant.\n", x, y);
-    } else if (x == 0 && y != 0) {
-        printf("The coordinate (%d, %d) lies on the Y-axis.\n", x, y);
-    } else if (y == 0 && x != 0) {
-        printf("The coordinate (%d, %d) lies on the X-axis.\n", x, y);
-    } else if (x == 0 && y == 0) {
-        printf("The coordinate (%d, %d) is at the Origin.\n", x, y);
-    } else {
-        printf("Invalid input.\n");
+    int marks[numStudents];
+    for (int i = 0; i < numStudents; i++) {
+        printf("Enter marks for student %d: ", i + 1);
+        scanf("%d", &marks[i]);
     }
 
+    printf("\n");
+    calculateAverage(numStudents, marks);
+
     return 0;
+}
+
+void calculateAverage(int numStudents, int marks[]) {
+    int sum = 0;
+    float average;
+
+    for (int i = 0; i < numStudents; i++) {
+        sum += marks[i];
+    }
+
+    average = (float)sum / numStudents;
+    printf("The average score is: %.2f", average);
 }

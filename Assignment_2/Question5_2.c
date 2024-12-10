@@ -1,24 +1,23 @@
 #include <stdio.h>
 
-void checkPerfectNumber(int number) {
-    int divisor = 1, sum = 0;
-    while (divisor < number) {
-        if (number % divisor == 0) {
-            sum += divisor;
-        }
-        divisor++;
-    }
-    if (sum == number) {
-        printf("It's a perfect number.\n");
-    } else {
-        printf("It's not a perfect number.\n");
-    }
-}
-
 int main() {
-    int num;
-    printf("Enter a number: ");
+    int num, sum = 0;
+    printf("Enter number of subjects: ");
     scanf("%d", &num);
-    checkPerfectNumber(num);
+
+    int marks[num];
+    for (int i = 0; i < num; i++) {
+        printf("Enter marks of subject %d: \n", i + 1);
+        scanf("%d", &marks[i]);
+
+        if (marks[i] > 100 || marks[i] < 0) {
+            printf("Try Again\nMarks should be between 0 to 100\n");
+            i--;  // Repeat this iteration
+        } else {
+            sum += marks[i];
+        }
+    }
+
+    printf("Sum of all subjects marks is %d\n", sum);
     return 0;
 }
